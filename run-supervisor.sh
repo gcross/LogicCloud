@@ -1,9 +1,9 @@
 #!/bin/sh
 
+cd $HOME/LogicCloud
+
 SIZE=`cat size`
 PORT=`cat port`
-
-cd $HOME/LogicCloud
 
 if [ ! -f finished-$SIZE ]
 then

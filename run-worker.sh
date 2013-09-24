@@ -1,9 +1,9 @@
 #!/bin/sh
 
+cd $HOME/LogicCloud
+
 HOST=`cat host`
 PORT=`cat port`
-
-cd $HOME/LogicCloud
 
 (./count-all-nqueens-solutions worker $HOST $PORT >> worker_1.log 2>&1; /sbin/shutdown +10) &
 ./count-all-nqueens-solutions worker $HOST $PORT >> worker_2.log 2>&1 &

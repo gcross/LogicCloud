@@ -1,0 +1,1 @@
+./count-all-nqueens-solutions supervisor -s all --show-cpu-time -l notice --log-format=$time:$prio:$msg -c

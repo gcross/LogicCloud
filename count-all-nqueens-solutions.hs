@@ -55,7 +55,11 @@ main = withSocketsDo $ do
             (\size (RunOutcome _ termination_reason) → do
                 case termination_reason of
                     Aborted _ → error "search aborted"
-                    Completed (WordSum count) → writeFile ("finished-"++show size) (show count)
+                    Completed (WordSum count) → do
+                        putStrLn $ "Finished with " ++ show count ++ " solutions."
+                        if nqueensCorrectCount size == count
+                            then putStrLn $ "This is the correct count."
+                            else putStrLn $ "This is NOT the correct count (" ++ show (nqueensCorrectCount size) ++ ")."
                     Failure _ message → error $ "error: " ++ message
             )
             nqueensCount
